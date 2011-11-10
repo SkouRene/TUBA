@@ -1,0 +1,27 @@
+; $Id: ninesixty.info,v 1.1.2.5.4.2 2011/01/11 01:08:49 dvessel Exp $
+
+name = tuba theme
+description = TUBAs theme, a subtheme of the 960-theme
+screenshot = images/screenshot.png
+core = 7.x
+engine = phptemplate
+
+
+; Theme specific styles. Any sub-themes should override this.
+stylesheets[all][] = styles/tuba_styles.css
+
+regions[page_top]       = Page top
+regions[header]         = Header
+regions[search_box]     = Search Box
+regions[highlighted]    = Highlight
+regions[help]           = Help
+regions[content]        = Content
+regions[sidebar_first]  = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[footer]         = Footer
+regions[page_bottom]    = Page bottom
+
+; Information added by drupal.org packaging script on 2011-01-11
+core = "7.x"
+datestamp = "1294708616"
+base theme = ninesixty
