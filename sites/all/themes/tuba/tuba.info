@@ -8,7 +8,7 @@ engine = phptemplate
 
 
 ; Theme specific styles. Any sub-themes should override this.
-stylesheets[all][] = styles/tuba_styles.css
+stylesheets[all][] = styles/styles.css
 
 regions[page_top]       = Page top
 regions[header]         = Header
