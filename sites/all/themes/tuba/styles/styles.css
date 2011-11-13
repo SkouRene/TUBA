@@ -22,3 +22,7 @@ ul.secondary-menu {
   margin: 0;
   padding: 0;
 }
+
+.menu-name-main-menu ul.menu li {
+  display:inline;
+}
