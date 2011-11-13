@@ -16,15 +16,15 @@
     <?php endif; ?>
     </div>
 
-  <?php if ($main_menu_links || $secondary_menu_links): ?>
-    <div id="site-menu" class="grid-12">
+  <!-- secondary menu deleted from this section -->
+  <?php if ($main_menu_links): ?>
+    <div id="site-menu" class="grid-6">
       <?php print $main_menu_links; ?>
-      <?php print $secondary_menu_links; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($page['search_box']): ?>
-    <div id="search-box" class="grid-6 prefix-10"><?php print render($page['search_box']); ?></div>
+    <div id="search-box" class="grid-4 prefix-2"><?php print render($page['search_box']); ?></div>
   <?php endif; ?>
   </div>
 
