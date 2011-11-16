@@ -26,3 +26,15 @@ ul.secondary-menu {
 .menu-name-main-menu ul.menu li {
   display:inline;
 }
+
+
+/* front page */
+
+#block-forum-new {
+  clear: left;  
+}
+
+/* slideshow */
+#views_slideshow_cycle_main_slideshows-page {
+  float:left;
+}
