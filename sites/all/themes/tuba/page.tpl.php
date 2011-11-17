@@ -42,8 +42,8 @@
   <?php endif; ?>
   </div>
 
-
-  <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 3) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
+    <!--the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-5".-->
+  <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 5) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
     <?php print $breadcrumb; ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
@@ -70,7 +70,8 @@
 <?php endif; ?>
 
 <?php if ($page['sidebar_second']): ?>
-  <div id="sidebar-right" class="column sidebar region grid-3">
+    <!--the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-5".-->
+  <div id="sidebar-right" class="column sidebar region grid-5">
     <?php print render($page['sidebar_second']); ?>
   </div>
 <?php endif; ?>
