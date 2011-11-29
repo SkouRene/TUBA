@@ -28,13 +28,14 @@ ul.secondary-menu {
 }
 
 
-/* front page */
+/* front page and slideshow pages*/
 
 #block-forum-new {
   clear: left;  
 }
 
 /* slideshow */
-#views_slideshow_cycle_main_slideshows-page {
+#views_slideshow_cycle_main_slideshows-page,
+#views_slideshow_cycle_main_slideshows-page_1 {
   float:left;
 }
