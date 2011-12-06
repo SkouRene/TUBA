@@ -1,0 +1,6 @@
+; $Id$
+name = TUBA locations
+description = Adds AJAX functionality to map of TUBA departments  
+package = CfDP helper modules
+core = 7.x
+files[] = tubalocations.module

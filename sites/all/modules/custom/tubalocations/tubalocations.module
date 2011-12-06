@@ -1,0 +1,86 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Adds AJAX based links to the map of TUBA departments
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function tubalocations_menu() {
+  $items = array();
+
+  $items['node/%node/tubalocations'] = array(
+    'page callback' => 'tubalocations_node',
+    'page arguments' => array(1),
+    'access callback' => 'node_access',
+    'access arguments' => array('view', 1),
+    'delivery callback' => 'ajax_deliver',
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_node_view_alter().
+ */
+function tubalocations_node_view_alter(&$build) {
+  // Only add the tubalocations link if the readmore link is there.
+  if (isset($build['links']['node']['#links']['node-readmore'])) {
+    $nid = $build['#node']->nid;
+
+    // Adjust the weight of the read more link.
+    $build['links']['node']['#weight'] = -1;
+
+    // Add the tubalocations link.
+    $build['links']['tubalocations']['#weight'] = -2;
+    $build['links']['tubalocations']['#theme'] = 'links__quicklinks';
+    $build['links']['tubalocations']['#attached']['js']['misc/ajax.js'] = array('weight' => JS_LIBRARY + 2);
+    $build['links']['tubalocations']['#attributes']['id'] = 'tubalocations-' . $nid;
+    $build['links']['tubalocations']['#attributes']['class'] = array('links', 'inline');
+    $build['links']['tubalocations']['#links']['tubalocations'] = array(
+      'title' => '↓ Quick view',
+      'href' => 'node/' . $nid . '/tubalocations/nojs',
+      'attributes' => array('class' => array('use-ajax')),
+    );
+  }
+}
+
+/**
+ * Menu callback; Show the content of a node for tubalocations.
+ */
+function tubalocations_node($node, $mode = NULL) {
+  // If the mode is not AJAX, redirect to the normal view of the page.
+  if ($mode != 'ajax') {
+    drupal_goto('node/' . $node->nid);
+  }
+
+  // Create the node "renderable" array.
+  $content = node_view($node);
+
+  // Remove the wrapper theming from around the node display and hide comments/links.
+  unset($content['#theme']); 
+  hide($content['comments']);
+  hide($content['links']);
+
+  // Render the HTML of the node.
+  $html = render($content);
+
+  // Send the AJAX commands to the calling page.
+  $commands = array();
+  $commands[] = ajax_command_html('#node-' . $node->nid . ' .content', $html);
+  $commands[] = ajax_command_remove('#tubalocations-' . $node->nid );
+  
+  // NOTE: this API changed after the recording of the video
+  // "ajax_commands" is now "ajax" for the #type property
+  // and the "#ajax_commands"" property should now be "#commands"
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+}
+
+
