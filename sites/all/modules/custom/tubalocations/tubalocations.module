@@ -25,35 +25,6 @@ function tubalocations_menu() {
 }
 
 /**
- * Implementation of hook_node_view_alter().
- */
-function tubalocations_node_view_alter(&$build) {
-  // Only add the tubalocations link if were on the right node
-  //dsm($build['#node']);
-  //var_dump($build['#node']->nid);
-  if ($build['#node']->nid == "88") {
-    $nid = 79;
-
-    // Adjust the weight of the read more link.
-    $build['links']['node']['#weight'] = -1;
-
-    // Add the tubalocations link.
-    $build['links']['tubalocations']['#weight'] = -2;
-    $build['links']['tubalocations']['#theme'] = 'links__quicklinks';
-    $build['links']['tubalocations']['#attached']['js']['misc/ajax.js'] = array('weight' => JS_LIBRARY + 2);
-    $build['links']['tubalocations']['#attributes']['id'] = 'tubalocations-' . $nid;
-    $build['links']['tubalocations']['#attributes']['class'] = array('links', 'inline');
-    $build['links']['tubalocations']['#links']['tubalocations'] = array(
-      'title' => '↓ Quick view',
-      'href' => 'node/' . $nid . '/tubalocations/nojs',
-      'attributes' => array('class' => array('use-ajax')),
-    );
-  }
-
-}
-
-
-/**
  * Menu callback; Show the content of a node for tubalocations.
  */
 function tubalocations_node($node, $mode = NULL) {
@@ -97,10 +68,21 @@ function tubalocations_block_view($delta = '') {
   drupal_add_library('system', 'drupal.ajax');
   drupal_add_library('system', 'jquery.form');
   
-    $block = array();
+  $block = array();
   
-  // Output a link
-  $output = l(t('AJAX'), 'node/79/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax'))));
+  //select all TUBA-departments and return nid and title
+  $query = "SELECT node.title AS node_title, node.nid AS nid FROM {node} node WHERE (( (node.status = '1') AND (node.type IN  ('tuba_afdeling')) )) ORDER BY node_title DESC LIMIT 10 OFFSET 0";
+  $result = db_query($query);
+
+  $output = "";
+  
+  //print out the links
+  foreach ($result as $record) {
+    $nid = $record->nid;
+    $title = $record->node_title;
+    $link_temp = l(t($title), 'node/'.$nid.'/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax', $title))));
+    $output .= $link_temp."<br>"; 
+  }
  
   // Output a wrapper
   
