@@ -28,9 +28,11 @@ function tubalocations_menu() {
  * Implementation of hook_node_view_alter().
  */
 function tubalocations_node_view_alter(&$build) {
-  // Only add the tubalocations link if the readmore link is there.
-  if (isset($build['links']['node']['#links']['node-readmore'])) {
-    $nid = $build['#node']->nid;
+  // Only add the tubalocations link if were on the right node
+  //dsm($build['#node']);
+  //var_dump($build['#node']->nid);
+  if ($build['#node']->nid == "88") {
+    $nid = 79;
 
     // Adjust the weight of the read more link.
     $build['links']['node']['#weight'] = -1;
@@ -47,7 +49,9 @@ function tubalocations_node_view_alter(&$build) {
       'attributes' => array('class' => array('use-ajax')),
     );
   }
+
 }
+
 
 /**
  * Menu callback; Show the content of a node for tubalocations.
@@ -71,8 +75,8 @@ function tubalocations_node($node, $mode = NULL) {
 
   // Send the AJAX commands to the calling page.
   $commands = array();
-  $commands[] = ajax_command_html('#node-' . $node->nid . ' .content', $html);
-  $commands[] = ajax_command_remove('#tubalocations-' . $node->nid );
+  $commands[] = ajax_command_html('#tubalocations-wrapper', $html);
+  //$commands[] = ajax_command_remove('#tubalocations-' . $node->nid );
   
   // NOTE: this API changed after the recording of the video
   // "ajax_commands" is now "ajax" for the #type property
@@ -84,3 +88,37 @@ function tubalocations_node($node, $mode = NULL) {
 }
 
 
+/**
+* Implements hook_block_view().
+*/
+function tubalocations_block_view($delta = '') {
+  
+  // Add libraries
+  drupal_add_library('system', 'drupal.ajax');
+  drupal_add_library('system', 'jquery.form');
+  
+    $block = array();
+  
+  // Output a link
+  $output = l(t('AJAX'), 'node/79/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax'))));
+ 
+  // Output a wrapper
+  
+  $output .= '<div id="tubalocations-wrapper"></div>';
+
+  $block['content'] =  $output;
+  
+  return $block;
+}
+
+/**
+* Implements hook_block_info().
+*/
+function tubalocations_block_info() {
+  $blocks = array();
+  $blocks['tubalocations'] = array(
+    'info' => t('tubalocations block'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
