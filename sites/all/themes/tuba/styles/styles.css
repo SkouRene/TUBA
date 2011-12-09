@@ -30,6 +30,9 @@ ul.secondary-menu {
 
 /* front page and slideshow pages*/
 
+#primary-bar {
+  background-color: #F2EEE4;
+}
 #block-forum-new {
   clear: left;  
 }
