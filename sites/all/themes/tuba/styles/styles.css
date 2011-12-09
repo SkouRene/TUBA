@@ -42,3 +42,8 @@ ul.secondary-menu {
 #views_slideshow_cycle_main_slideshows-page_1 {
   float:left;
 }
+
+/*tuba "vil du vide mere" - section*/
+#tubalocations-wrapper {
+  border: 1px solid green;
+}

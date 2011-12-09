@@ -40,9 +40,10 @@ function tubalocations_node($node, $mode = NULL) {
   unset($content['#theme']); 
   hide($content['comments']);
   hide($content['links']);
-
   // Render the HTML of the node.
-  $html = render($content);
+  $html = '<h3 class="tubalocations-title">'. $node->title.'</h3>';
+
+  $html .= render($content);
 
   // Send the AJAX commands to the calling page.
   $commands = array();
@@ -74,19 +75,22 @@ function tubalocations_block_view($delta = '') {
   $query = "SELECT node.title AS node_title, node.nid AS nid FROM {node} node WHERE (( (node.status = '1') AND (node.type IN  ('tuba_afdeling')) )) ORDER BY node_title DESC LIMIT 10 OFFSET 0";
   $result = db_query($query);
 
-  $output = "";
+  $output = "<ul id='tubalocations-list'>";
   
   //print out the links
   foreach ($result as $record) {
     $nid = $record->nid;
     $title = $record->node_title;
-    $link_temp = l(t($title), 'node/'.$nid.'/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax', $title))));
-    $output .= $link_temp."<br>"; 
+    //removing special characters and spaces in the css class
+    $department_nid_css = "tuba-afdeling-nid-".$nid;
+    $link_temp = l(t($title), 'node/'.$nid.'/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax'))));
+    $output .= "<li id = '".$department_nid_css."'>".$link_temp."</li>"; 
   }
- 
+  $output .= "</ul>"; 
+  
   // Output a wrapper
   
-  $output .= '<div id="tubalocations-wrapper"></div>';
+  $output .= '<div id="tubalocations-wrapper">Klik på en af afdelingerne på kortet for at se info... (denne boks kunne også default loade hovedafdelingen som i oplægget.)</div>';
 
   $block['content'] =  $output;
   
