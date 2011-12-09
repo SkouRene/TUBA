@@ -1,0 +1,106 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Adds AJAX based links to the map of TUBA departments
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function tubalocations_menu() {
+  $items = array();
+
+  $items['node/%node/tubalocations'] = array(
+    'page callback' => 'tubalocations_node',
+    'page arguments' => array(1),
+    'access callback' => 'node_access',
+    'access arguments' => array('view', 1),
+    'delivery callback' => 'ajax_deliver',
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback; Show the content of a node for tubalocations.
+ */
+function tubalocations_node($node, $mode = NULL) {
+  // If the mode is not AJAX, redirect to the normal view of the page.
+  if ($mode != 'ajax') {
+    drupal_goto('node/' . $node->nid);
+  }
+
+  // Create the node "renderable" array.
+  $content = node_view($node);
+
+  // Remove the wrapper theming from around the node display and hide comments/links.
+  unset($content['#theme']); 
+  hide($content['comments']);
+  hide($content['links']);
+
+  // Render the HTML of the node.
+  $html = render($content);
+
+  // Send the AJAX commands to the calling page.
+  $commands = array();
+  $commands[] = ajax_command_html('#tubalocations-wrapper', $html);
+  //$commands[] = ajax_command_remove('#tubalocations-' . $node->nid );
+  
+  // NOTE: this API changed after the recording of the video
+  // "ajax_commands" is now "ajax" for the #type property
+  // and the "#ajax_commands"" property should now be "#commands"
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+}
+
+
+/**
+* Implements hook_block_view().
+*/
+function tubalocations_block_view($delta = '') {
+  
+  // Add libraries
+  drupal_add_library('system', 'drupal.ajax');
+  drupal_add_library('system', 'jquery.form');
+  
+  $block = array();
+  
+  //select all TUBA-departments and return nid and title
+  $query = "SELECT node.title AS node_title, node.nid AS nid FROM {node} node WHERE (( (node.status = '1') AND (node.type IN  ('tuba_afdeling')) )) ORDER BY node_title DESC LIMIT 10 OFFSET 0";
+  $result = db_query($query);
+
+  $output = "";
+  
+  //print out the links
+  foreach ($result as $record) {
+    $nid = $record->nid;
+    $title = $record->node_title;
+    $link_temp = l(t($title), 'node/'.$nid.'/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax', $title))));
+    $output .= $link_temp."<br>"; 
+  }
+ 
+  // Output a wrapper
+  
+  $output .= '<div id="tubalocations-wrapper"></div>';
+
+  $block['content'] =  $output;
+  
+  return $block;
+}
+
+/**
+* Implements hook_block_info().
+*/
+function tubalocations_block_info() {
+  $blocks = array();
+  $blocks['tubalocations'] = array(
+    'info' => t('tubalocations block'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
