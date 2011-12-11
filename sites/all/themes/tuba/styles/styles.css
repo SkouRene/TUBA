@@ -5,7 +5,9 @@ h1#site-name {
   margin-bottom: 0;
 
 }
-
+body.show-grid .container-16 {
+    background-image: none;
+}
 #site-header,
 #site-subheader,
 #footer-region,
@@ -31,8 +33,12 @@ ul.secondary-menu {
 /* front page and slideshow pages*/
 
 #primary-bar {
-  background-color: #F2EEE4;
+  background-color: #E8E4D9;
 }
+#secondary-bar {
+  background-color: #F05B19;
+}
+
 #block-forum-new {
   clear: left;  
 }
