@@ -19,6 +19,7 @@ regions[content]        = Content
 regions[sidebar_first]  = Left sidebar
 regions[sidebar_second] = Right sidebar
 regions[footer]         = Footer
+regions[sub_footer]     = Sub footer
 regions[page_bottom]    = Page bottom
 
 ; Information added by drupal.org packaging script on 2011-01-11

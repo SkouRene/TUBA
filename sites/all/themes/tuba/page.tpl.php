@@ -2,7 +2,7 @@
 // $Id: page.tpl.php,v 1.1.2.2.4.2 2011/01/11 01:08:49 dvessel Exp $
 ?>
 <div id="page" class="clearfix">
-  <div id="primary-bar">
+  <div id="top-bar">
     <div id="site-header-wrapper" class="container-16 clearfix">
       <div id="site-header" class="clearfix">
         <div id="branding" class="grid-4 clearfix">
@@ -19,7 +19,7 @@
   
       <!-- secondary menu deleted from this section -->
       <?php if ($main_menu_links): ?>
-        <div id="site-menu" class="grid-6">
+        <div id="site-menu" class="grid-6 prefix-3">
           <?php print $main_menu_links; ?>
         </div>
       <?php endif; ?>
@@ -31,7 +31,7 @@
     </div>
   </div>
   
-  <div id="secondary-bar">
+  <div id="sub-bar">
     <div id="site-subheader-wrapper" class="container-16 clearfix">
   
       <div id="site-subheader" class="prefix-1 suffix-1 clearfix">
@@ -42,7 +42,7 @@
       <?php endif; ?>
     
       <?php if ($page['header']): ?>
-        <div id="header-region" class="region <?php print ns('grid-14', $page['highlighted'], 7); ?> clearfix">
+        <div id="header-region" class="region <?php print ns('grid-12', $page['highlighted'], 7); ?> prefix-2 clearfix">
           <?php print render($page['header']); ?>
         </div>
       <?php endif; ?>
@@ -50,7 +50,7 @@
     </div>
   </div>
     
-  <div id="main-footer-wrapper" class="container-16 clearfix">  
+  <div id="main-wrapper" class="container-16 clearfix">  
     <!--the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-5".-->
     <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 5) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
       <?php print $breadcrumb; ?>
@@ -84,14 +84,29 @@
         <?php print render($page['sidebar_second']); ?>
       </div>
     <?php endif; ?>
-    
-    
-      <div id="footer" class="prefix-1 suffix-1">
-        <?php if ($page['footer']): ?>
-          <div id="footer-region" class="region grid-14 clearfix">
-            <?php print render($page['footer']); ?>
-          </div>
-        <?php endif; ?>
+  </div>
+
+  <div id="footer-bar">
+      <div id="footer-wrapper" class="container-16">
+        <div id="footer" class="prefix-1 suffix-1">
+          <?php if ($page['footer']): ?>
+            <div id="footer-region" class="region grid-14 clearfix">
+              <?php print render($page['footer']); ?>
+            </div>
+          <?php endif; ?>
+        </div>
       </div>
   </div>
+  
+  <div id="bottom-bar">
+      <div id="bottom-wrapper" class="container-16">
+        <div id="bottom" class="prefix-1 suffix-1">
+          <?php if ($page['sub_footer']): ?>
+            <div id="sub-footer-region" class="region grid-14 clearfix">
+              <?php print render($page['sub_footer']); ?>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+   </div>
 </div>
