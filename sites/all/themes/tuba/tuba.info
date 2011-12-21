@@ -1,6 +1,6 @@
 ; $Id: ninesixty.info,v 1.1.2.5.4.2 2011/01/11 01:08:49 dvessel Exp $
 
-name = tuba theme
+name = TUBA theme
 description = TUBAs theme, a subtheme of the 960-theme
 screenshot = images/screenshot.png
 core = 7.x
@@ -9,6 +9,9 @@ engine = phptemplate
 
 ; Theme specific styles. Any sub-themes should override this.
 stylesheets[all][] = styles/styles.css
+
+; custom style for the forum
+plugins[advanced_forum][styles] = 'tuba_adv_forum'
 
 regions[page_top]       = Page top
 regions[header]         = Header

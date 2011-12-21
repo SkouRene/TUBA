@@ -1,5 +1,7 @@
 /* custom styling for tuba.dk */
 
+/* GENERAL SETTINGS
+----------*/
 h1#site-name {
   font-size: 1.2em;
   margin-bottom: 0;
@@ -9,7 +11,8 @@ body.show-grid .container-16 {
     background-image: none;
 }
 body {
-    font: 12px Trebuchet MS;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 #site-header,
@@ -19,16 +22,10 @@ body {
 .node,
 .comment,
 .block {
-  margin-bottom: 1.5em;
 }
 
-#site-menu {
-  top: 20px;
-}
 
-#block-menu-block-1 {
-  top: 20px;
-}
+
 ul.main-menu,
 ul.secondary-menu {
   display: block;
@@ -36,10 +33,29 @@ ul.secondary-menu {
   padding: 0;
 }
 
+/* BUTTONS
+----------*/
 
+/*advanced forum*/
+.af-button-large, 
+.af-button-small, 
+.author-pane-link {
+    background: none repeat scroll 0 0 #4C83C3;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 18px;
+    margin-top: 20px;
+    padding: 5px 15px;
+}
 
-
-
+.af-button-large:hover, 
+.af-button-small:hover, 
+.author-pane-link:hover {
+    background: none repeat scroll 0 0 #386DAB;
+}
 
 /* TOP-BAR
 ----------*/
@@ -61,6 +77,16 @@ ul.secondary-menu {
     color: #000000;
     font-size: 16px;
 }
+
+  /* --> primary menu */
+  #primary-menu       {padding-top: 50px;}
+  #primary-menu li      {display: inline; margin-right: 30px;}
+  #primary-menu li a      {color: #000000; font-size: 16px; text-decoration:  none;}
+  #primary-menu li a:hover  {color: #F15B19;}
+  #primary-menu li.selected_orange a  {color: #F15B19;}
+  #primary-menu li.selected_green a {color: #9BBF35;}
+  #primary-menu li.selected_purple a  {color: #A838E7;}
+  
 /* SUB-BAR
 ----------*/
 #sub-bar {
@@ -73,9 +99,10 @@ ul.secondary-menu {
  .menu-name-main-menu ul.menu li {
   display:inline;
 }
+
   .menu-name-main-menu         {padding-top: 20px;}
   .menu-name-main-menu li        {float: left; margin-right: 30px;}
-  .menu-name-main-menu li a        {color: #000000; font-size: 16px; height:42px; line-height:32px; padding-left: 42px;}
+  .menu-name-main-menu li a        {color: #000000; font-size: 16px; height:42px; line-height:32px; padding-left: 42px; text-decoration: none;}
   .menu-name-main-menu li a:hover    {text-decoration: underline;}
   .menu-name-main-menu li a.selected   {color: #FFFFFF;}
 
@@ -89,21 +116,33 @@ ul.secondary-menu {
 
 /* FOOTER-BAR
 ----------*/
-#footer-bar {
-  background-color: #E8E4D9;
-  height: 100px;
-}
 
+#footer-bar           {color: #646464; height: 176px; background: #F2EEE4;}
+#footer-bar h3            {font-size: 18px; margin: 10px 0 10px 0;}
+#footer-bar li            {font-size: 16px; margin-bottom: 10px; list-style: none outside none;}
+#footer-box-1, #footer-box-2, #footer-box-3  {}     
+.right-border  {border-right: 1px solid #bfbfbf;}
+
+/* BOTTOM-BAR
+----------*/
 #bottom-bar {
   background-color: #DDDDDD;
   border-top: 1px solid #C6C6C6;
   height: 45px;
 }
+
+
+#chat-desc            {padding-top: 15px;}
+#chat-btn           {float: left; color: #000000; border-left: 1px solid #C6C6C6; border-right: 1px solid #C6C6C6; display: inline; height: 32px; padding: 0 20px; margin-top: 6px;}
+#chat-btn img         {float: left; margin-right: 10px;}
+#chat-btn span          {float: left; line-height: 32px;}
+
 /* MAIN-SECTION
 ----------*/
 .breadcrumb {
   font-size: 11px;
   text-transform: uppercase;  
+  padding-top: 10px;
 }
 
 .breadcrumb a {
@@ -117,8 +156,16 @@ ul.secondary-menu {
 
 /* slideshow */
 #views_slideshow_cycle_main_slideshows-page,
-#views_slideshow_cycle_main_slideshows-page_1 {
-  float:left;
+#views_slideshow_cycle_main_slideshows-page_1,
+.views-slideshow-controls-bottom .views-field-title,
+.views-slideshow-controls-bottom .views-field-field-section,
+.views-slideshow-controls-bottom .views-field-field-youtube-video { 
+
+}
+
+
+.views-slideshow-controls-bottom .views-field-field-section { 
+
 }
 
 /*tuba "vil du vide mere" - section*/

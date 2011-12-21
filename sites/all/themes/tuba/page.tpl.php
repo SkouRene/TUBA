@@ -17,16 +17,12 @@
         <?php endif; ?>
       </div>
   
-      <!-- secondary menu deleted from this section -->
       <?php if ($main_menu_links): ?>
-        <div id="site-menu" class="grid-6 prefix-3">
+        <div id="primary-menu" class="grid-9 prefix-3">
           <?php print $main_menu_links; ?>
         </div>
       <?php endif; ?>
     
-      <?php if ($page['search_box']): ?>
-        <div id="search-box" class="grid-4 prefix-2"><?php print render($page['search_box']); ?></div>
-      <?php endif; ?>
       </div>
     </div>
   </div>
@@ -34,18 +30,24 @@
   <div id="sub-bar">
     <div id="site-subheader-wrapper" class="container-16 clearfix">
   
-      <div id="site-subheader" class="prefix-1 suffix-1 clearfix">
+      <div id="site-subheader" class="prefix-1 clearfix">
       <?php if ($page['highlighted']): ?>
-        <div id="highlighted" class="<?php print ns('grid-14', $page['header'], 7); ?>">
+        <div id="highlighted" class="<?php print ns('grid-12', $page['header'], 7); ?>">
           <?php print render($page['highlighted']); ?>
         </div>
       <?php endif; ?>
-    
+
       <?php if ($page['header']): ?>
-        <div id="header-region" class="region <?php print ns('grid-12', $page['highlighted'], 7); ?> prefix-2 clearfix">
+        <div id="header-region" class="region <?php print ns('grid-10', $page['highlighted'], 7); ?> prefix-2 clearfix">
           <?php print render($page['header']); ?>
         </div>
       <?php endif; ?>
+            
+      <?php if ($page['search_box']): ?>
+        <div id="search-box" class="grid-2"><?php print render($page['search_box']); ?></div>
+      <?php endif; ?>
+    
+
       </div>
     </div>
   </div>
@@ -88,9 +90,9 @@
 
   <div id="footer-bar">
       <div id="footer-wrapper" class="container-16">
-        <div id="footer" class="prefix-1 suffix-1">
+        <div id="footer">
           <?php if ($page['footer']): ?>
-            <div id="footer-region" class="region grid-14 clearfix">
+            <div id="footer-region" class="region grid-16 clearfix">
               <?php print render($page['footer']); ?>
             </div>
           <?php endif; ?>
@@ -100,9 +102,9 @@
   
   <div id="bottom-bar">
       <div id="bottom-wrapper" class="container-16">
-        <div id="bottom" class="prefix-1 suffix-1">
+        <div id="bottom">
           <?php if ($page['sub_footer']): ?>
-            <div id="sub-footer-region" class="region grid-14 clearfix">
+            <div id="sub-footer-region" class="region grid-16 clearfix">
               <?php print render($page['sub_footer']); ?>
             </div>
           <?php endif; ?>
