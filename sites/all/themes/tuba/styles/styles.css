@@ -5,11 +5,17 @@
 h1#site-name {
   font-size: 1.2em;
   margin-bottom: 0;
-
 }
+
+h1#page-title {
+    color: #F15B19;
+    padding: 8px 0 10px;
+}
+
 body.show-grid .container-16 {
     background-image: none;
 }
+
 body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 14px;
@@ -33,13 +39,14 @@ ul.secondary-menu {
   padding: 0;
 }
 
-/* BUTTONS
+/* BUTTONS AND FORM ELEMENTS
 ----------*/
 
 /*advanced forum*/
 .af-button-large, 
 .af-button-small, 
-.author-pane-link {
+.author-pane-link,
+.form-submit {
     background: none repeat scroll 0 0 #4C83C3;
     border: medium none;
     border-radius: 5px 5px 5px 5px;
@@ -53,9 +60,33 @@ ul.secondary-menu {
 
 .af-button-large:hover, 
 .af-button-small:hover, 
-.author-pane-link:hover {
+.author-pane-link:hover,
+.form-submit:hover {
     background: none repeat scroll 0 0 #386DAB;
 }
+
+input.form-text,
+.form-select  {
+    border-radius: 5px 5px 5px 5px;
+    color: #757474;
+    display: block;
+    font: 14px Trebuchet MS;
+    margin-bottom: 20px;
+    padding: 8px 5px;
+}
+.form-select {
+    border: 1px solid #BFBFBF; 
+}
+
+/*we don't want to show input filter formats to not-logged-in users*/
+body.not-logged-in .filter-wrapper {
+  display:none;
+}
+
+.description.mollom-privacy {
+  display: none;
+}
+
 
 /* TOP-BAR
 ----------*/
