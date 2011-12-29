@@ -1,3 +1,46 @@
+/*
+WEBSITE DESIGN BY CFDP.DK AND DETALJERYTTERNE.DK
+
+GRAPHICS AND MARKUP PROTOTYPE:
+----------------------------
+Detaljerytterne
+www.detaljerytterne.dk
+hallo@detaljerytterne.dk
+----------------------------
+DRUPAL WEBSITE CONSTRUCTION AND THEME CODING:
+----------------------------
+Center for Digital Pædagogik
+www.cfdp.dk
+benjamin@cfdp.dk
+----------------------------*/
+
+/* COLORS
+----------*/
+/*
+  --> BLÅ
+    TUBA Blå  = #4C83C3
+    TUBA M_Blå  = #213B73
+    Hover Blå   = #386DAB
+    
+    --> ORANGE
+    TUBA Orange = #F15B19
+    
+    --> Lilla
+    TUBA Lilla  = #A838E7
+    
+    --> GRØN
+    TUBA Grøn = #9BBF35
+    
+    --> GRÅ
+    TUBA Grå  = #DDDDDD
+          = #787B72
+          = #757474
+          = #646464
+          = #C6C6C6
+          = #B8B8B8
+*/
+
+
 /* custom styling for tuba.dk */
 
 /* GENERAL SETTINGS
@@ -74,11 +117,17 @@ input.form-text,
     margin-bottom: 20px;
     padding: 8px 5px;
 }
+
+input#edit-search-block-form--2 {
+    padding: 0px;
+    margin-bottom: 5px;
+}
+
 .form-select {
     border: 1px solid #BFBFBF; 
 }
 
-/*we don't want to show input filter formats to not-logged-in users*/
+/*we don't want to show input filter formats or Mollom info to not-logged-in users*/
 body.not-logged-in .filter-wrapper {
   display:none;
 }
@@ -125,11 +174,10 @@ body.not-logged-in .filter-wrapper {
   height: 76px;
 }
 
-  /* --> secondary menu */
- 
- .menu-name-main-menu ul.menu li {
-  display:inline;
-}
+  /* --> secondary menu */ 
+  .menu-name-main-menu ul.menu li {
+    display:inline;
+  }
 
   .menu-name-main-menu         {padding-top: 20px;}
   .menu-name-main-menu li        {float: left; margin-right: 30px;}
@@ -145,6 +193,43 @@ body.not-logged-in .filter-wrapper {
   .menu-name-main-menu li.menu-mlid-xx    {background-image: url(/sites/all/themes/tuba/images/assets/viden.png); background-repeat: no-repeat;}
   .menu-name-main-menu li.menu-mlid-xx    {background-image: url(/sites/all/themes/tuba/images/assets/presse.png); background-repeat: no-repeat;}
 
+/* RIGHT SIDEBAR
+----------*/
+#sidebar-right .block {
+	background: none repeat scroll 0 0 #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+  /*front page fold out widgets*/
+  #block-forum-new,
+  #block-views-begivenheder-block {
+    clear: both;
+    float: right; 
+    width: 340px; 
+  }
+  #block-forum-new h2,
+  #block-views-begivenheder-block h2 {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+    display: block;
+  }
+  
+  #block-forum-new .content {background: #DDDDDD; border-radius: 5px; left: -600px; top: 0; z-index: 999;}
+  
+  #block-forum-new .content .item-list {
+    border-top: 1px solid #C6C6C6;
+    margin-top: 38px;
+    width: 580px;
+  } 
+  
 /* FOOTER-BAR
 ----------*/
 
@@ -181,13 +266,12 @@ body.not-logged-in .filter-wrapper {
   text-decoration: none;
 }
 
-#block-forum-new {
-  clear: left;  
-}
-
+    
 /* slideshow */
 #views_slideshow_cycle_main_slideshows-page,
-#views_slideshow_cycle_main_slideshows-page_1,
+#views_slideshow_cycle_main_slideshows-page_1  { 
+	float:left;
+}
 .views-slideshow-controls-bottom .views-field-title,
 .views-slideshow-controls-bottom .views-field-field-section,
 .views-slideshow-controls-bottom .views-field-field-youtube-video { 

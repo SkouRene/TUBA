@@ -10,6 +10,9 @@ engine = phptemplate
 ; Theme specific styles. Any sub-themes should override this.
 stylesheets[all][] = styles/styles.css
 
+; Javascript and jQuery
+scripts[] = js/tubatheme.js
+
 ; custom style for the forum
 plugins[advanced_forum][styles] = 'tuba_adv_forum'
 
