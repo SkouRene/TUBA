@@ -45,6 +45,7 @@ benjamin@cfdp.dk
 
 /* GENERAL SETTINGS
 ----------*/
+
 h1#site-name {
   font-size: 1.2em;
   margin-bottom: 0;
@@ -56,7 +57,7 @@ h1#page-title {
 }
 
 body.show-grid .container-16 {
-    background-image: none;
+   /* background-image: none;*/
 }
 
 body {
@@ -159,13 +160,36 @@ body.not-logged-in .filter-wrapper {
 }
 
   /* --> primary menu */
-  #primary-menu       {padding-top: 50px;}
-  #primary-menu li      {display: inline; margin-right: 30px;}
-  #primary-menu li a      {color: #000000; font-size: 16px; text-decoration:  none;}
-  #primary-menu li a:hover  {color: #F15B19;}
-  #primary-menu li.selected_orange a  {color: #F15B19;}
-  #primary-menu li.selected_green a {color: #9BBF35;}
-  #primary-menu li.selected_purple a  {color: #A838E7;}
+  #primary-menu {
+    padding-top: 50px;
+  }
+  
+  #primary-menu li {
+    display: inline; 
+    margin-right: 30px;
+  }
+  
+  #primary-menu li a {
+    color: #000000; 
+    font-size: 16px; 
+    text-decoration:  none;
+  }
+  
+  #primary-menu li a:hover {
+    color: #F15B19;
+  }
+  
+  #primary-menu li.selected_orange a {
+    color: #F15B19;
+  }
+  
+  #primary-menu li.selected_green a {
+    color: #9BBF35;
+  }
+  
+  #primary-menu li.selected_purple a {
+    color: #A838E7;
+  }
   
 /* SUB-BAR
 ----------*/
@@ -174,25 +198,85 @@ body.not-logged-in .filter-wrapper {
   height: 76px;
 }
 
+/*secondary section*/
+body.secondary-section #sub-bar {
+  background-color: #9BBF35;
+}
+
+/*tertiary section*/
+body.tertiary-section #sub-bar {
+  background-color: #A838E7;
+}
+
   /* --> secondary menu */ 
   .menu-name-main-menu ul.menu li {
     display:inline;
   }
 
-  .menu-name-main-menu         {padding-top: 20px;}
-  .menu-name-main-menu li        {float: left; margin-right: 30px;}
-  .menu-name-main-menu li a        {color: #000000; font-size: 16px; height:42px; line-height:32px; padding-left: 42px; text-decoration: none;}
-  .menu-name-main-menu li a:hover    {text-decoration: underline;}
-  .menu-name-main-menu li a.selected   {color: #FFFFFF;}
+  .menu-name-main-menu {
+    padding-top: 20px;
+  }
+  
+  .menu-name-main-menu li {
+    float: left; 
+    margin-right: 30px;
+  }
+  
+  .menu-name-main-menu li a {
+    color: #000000; 
+    font-size: 16px; 
+    height:42px; 
+    line-height:32px; 
+    padding-left: 42px; 
+    text-decoration: none;
+  }
+  
+  .menu-name-main-menu li a:hover {
+    text-decoration: underline;
+  }
+  
+  .menu-name-main-menu li a.selected {
+    color: #FFFFFF;
+  }
 
-  .menu-name-main-menu li.menu-mlid-1095    {background-image: url(/sites/all/themes/tuba/images/assets/desvaere.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-448   {background-image: url(/sites/all/themes/tuba/images/assets/forum.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-450   {background-image: url(/sites/all/themes/tuba/images/assets/brevkasse.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-449   {background-image: url(/sites/all/themes/tuba/images/assets/raadgivning.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-xx    {background-image: url(/sites/all/themes/tuba/images/assets/tuba.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-xx    {background-image: url(/sites/all/themes/tuba/images/assets/viden.png); background-repeat: no-repeat;}
-  .menu-name-main-menu li.menu-mlid-xx    {background-image: url(/sites/all/themes/tuba/images/assets/presse.png); background-repeat: no-repeat;}
-
+  .menu-name-main-menu li.menu-mlid-1292 {
+    background-image: url(/sites/all/themes/tuba/images/assets/desvaere.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-448 {
+    background-image: url(/sites/all/themes/tuba/images/assets/forum.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-450 {
+    background-image: url(/sites/all/themes/tuba/images/assets/brevkasse.png); background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-449 {
+    background-image: url(/sites/all/themes/tuba/images/assets/raadgivning.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-732 {
+    background-image: url(/sites/all/themes/tuba/images/assets/presse.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-730 {
+    background-image: url(/sites/all/themes/tuba/images/assets/tuba.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-731 {
+    background-image: url(/sites/all/themes/tuba/images/assets/viden.png); 
+    background-repeat: no-repeat;
+  }
+  
+  .menu-name-main-menu li.menu-mlid-1107 {
+    background-image: url(/sites/all/themes/tuba/images/assets/tilbud.png); 
+    background-repeat: no-repeat;
+  }
 /* RIGHT SIDEBAR
 ----------*/
 #sidebar-right .block {
@@ -209,6 +293,7 @@ body.not-logged-in .filter-wrapper {
     clear: both;
     float: right; 
     width: 340px; 
+    position: relative;
   }
   #block-forum-new h2,
   #block-views-begivenheder-block h2 {
@@ -222,7 +307,14 @@ body.not-logged-in .filter-wrapper {
     display: block;
   }
   
-  #block-forum-new .content {background: #DDDDDD; border-radius: 5px; left: -600px; top: 0; z-index: 999;}
+  #block-forum-new .content {
+    background: #DDDDDD; 
+    border-radius: 5px; 
+    left: -600px; 
+    top: 0; 
+    z-index: 999;
+    position: absolute;
+  }
   
   #block-forum-new .content .item-list {
     border-top: 1px solid #C6C6C6;
@@ -233,11 +325,27 @@ body.not-logged-in .filter-wrapper {
 /* FOOTER-BAR
 ----------*/
 
-#footer-bar           {color: #646464; height: 176px; background: #F2EEE4;}
-#footer-bar h3            {font-size: 18px; margin: 10px 0 10px 0;}
-#footer-bar li            {font-size: 16px; margin-bottom: 10px; list-style: none outside none;}
+#footer-bar {
+  color: #646464;
+  height: 176px; 
+  background: #F2EEE4;
+}
+
+#footer-bar h3 {
+  font-size: 18px; 
+  margin: 10px 0 10px 0;
+}
+
+#footer-bar li {
+  font-size: 16px; 
+  margin-bottom: 10px; 
+  list-style: none outside none;
+}
+
 #footer-box-1, #footer-box-2, #footer-box-3  {}     
-.right-border  {border-right: 1px solid #bfbfbf;}
+.right-border  {
+  border-right: 1px solid #bfbfbf;
+}
 
 /* BOTTOM-BAR
 ----------*/
@@ -248,10 +356,30 @@ body.not-logged-in .filter-wrapper {
 }
 
 
-#chat-desc            {padding-top: 15px;}
-#chat-btn           {float: left; color: #000000; border-left: 1px solid #C6C6C6; border-right: 1px solid #C6C6C6; display: inline; height: 32px; padding: 0 20px; margin-top: 6px;}
-#chat-btn img         {float: left; margin-right: 10px;}
-#chat-btn span          {float: left; line-height: 32px;}
+#chat-desc {
+  padding-top: 15px;
+}
+
+#chat-btn {
+  float: left; 
+  color: #000000; 
+  border-left: 1px solid #C6C6C6; 
+  border-right: 1px solid #C6C6C6; 
+  display: inline; 
+  height: 32px; 
+  padding: 0 20px; 
+  margin-top: 6px;
+}
+
+#chat-btn img {
+  float: left; 
+  margin-right: 10px;
+}
+
+#chat-btn span {
+  float: left; 
+  line-height: 32px;
+}
 
 /* MAIN-SECTION
 ----------*/
@@ -269,21 +397,51 @@ body.not-logged-in .filter-wrapper {
     
 /* slideshow */
 #views_slideshow_cycle_main_slideshows-page,
-#views_slideshow_cycle_main_slideshows-page_1  { 
+#views_slideshow_cycle_main_slideshows-page_1,
+.views-slideshow-controls-bottom,
+.views-slideshow-controls-bottom .views-field-title,
+.views-slideshow-controls-bottom .views-content-field-youtube-video,
+.views-slideshow-controls-bottom .views-field-field-section  { 
 	float:left;
 }
-.views-slideshow-controls-bottom .views-field-title,
-.views-slideshow-controls-bottom .views-field-field-section,
-.views-slideshow-controls-bottom .views-field-field-youtube-video { 
-
-}
-
 
 .views-slideshow-controls-bottom .views-field-field-section { 
-
+  width: 140px;
 }
 
-/*tuba "vil du vide mere" - section*/
-#tubalocations-wrapper {
-  border: 1px solid green;
+.views-slideshow-controls-bottom {
+  width: 340px;  
+}
+
+.views-slideshow-controls-bottom .views-content-field-youtube-video { 
+  clear: left;
+  margin-right: 20px;
+}
+
+#block-views-slideshows-block-1 {
+  float:right;
+}
+/*forum*/
+
+tr.forum-row {
+  background: none repeat scroll 0 0 #DDDDDD;
+  border-radius: 5px 5px 5px 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+/*om TUBA - page */
+#tubalocations-info {
+  background: none repeat scroll 0 0 #F2EEE4;
+  border: 1px solid #C6C6C6;
+  border-radius: 3px 3px 3px 3px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 130px;
+}
+
+#tubalocations-map {
+  background-image: url(/sites/all/themes/tuba/images/dep_map.png);
+  height: 360px; 
+  background-position: right; 
+  background-repeat: no-repeat;
 }

@@ -47,7 +47,7 @@ function tubalocations_node($node, $mode = NULL) {
 
   // Send the AJAX commands to the calling page.
   $commands = array();
-  $commands[] = ajax_command_html('#tubalocations-wrapper', $html);
+  $commands[] = ajax_command_html('#tubalocations-info', $html);
   //$commands[] = ajax_command_remove('#tubalocations-' . $node->nid );
   
   // NOTE: this API changed after the recording of the video
@@ -74,8 +74,8 @@ function tubalocations_block_view($delta = '') {
   //select all TUBA-departments and return nid and title
   $query = "SELECT node.title AS node_title, node.nid AS nid FROM {node} node WHERE (( (node.status = '1') AND (node.type IN  ('tuba_afdeling')) )) ORDER BY node_title DESC LIMIT 10 OFFSET 0";
   $result = db_query($query);
-
-  $output = "<ul id='tubalocations-list'>";
+  $start_message = t("Klik på en af afdelingerne på kortet for at se info... (denne boks kunne også default loade hovedafdelingen som i oplægget.)");
+  $output = "<div id='tubalocations-map'><div id='tubalocations-info'>".$start_message."</div><ul id='tubalocations-list'>";
   
   //print out the links
   foreach ($result as $record) {
@@ -86,12 +86,8 @@ function tubalocations_block_view($delta = '') {
     $link_temp = l(t($title), 'node/'.$nid.'/tubalocations/nojs/', array('attributes' => array('class' => array('use-ajax'))));
     $output .= "<li id = '".$department_nid_css."'>".$link_temp."</li>"; 
   }
-  $output .= "</ul>"; 
+  $output .= "</ul></div>"; 
   
-  // Output a wrapper
-  
-  $output .= '<div id="tubalocations-wrapper">Klik på en af afdelingerne på kortet for at se info... (denne boks kunne også default loade hovedafdelingen som i oplægget.)</div>';
-
   $block['content'] =  $output;
   
   return $block;
