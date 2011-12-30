@@ -3,7 +3,7 @@ Drupal.behaviors.myBehavior = {
   attach: function (context, settings) {
     
     //HIDE LATEST MENU CONTENT
-    $("#block-forum-new .content, #block-views-begivenheder-block .content, #calendar_tab_foldout").hide();
+    $("#block-forum-new .content, #block-views-begivenheder-block .content").hide();
 
     //FORUM Foldout
     $("#block-forum-new h2").toggle(
