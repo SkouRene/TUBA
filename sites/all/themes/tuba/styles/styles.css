@@ -43,17 +43,17 @@ benjamin@cfdp.dk
 
 /* custom styling for tuba.dk */
 
-/* GENERAL SETTINGS
+/* ---------
+ * GENERAL SETTINGS
 ----------*/
-
-h1#site-name {
-  font-size: 1.2em;
-  margin-bottom: 0;
-}
 
 h1#page-title {
     color: #F15B19;
     padding: 8px 0 10px;
+}
+
+h2 {
+    font-size: 18px;
 }
 
 body.show-grid .container-16 {
@@ -83,7 +83,8 @@ ul.secondary-menu {
   padding: 0;
 }
 
-/* BUTTONS AND FORM ELEMENTS
+/* ---------
+ * BUTTONS AND FORM ELEMENTS
 ----------*/
 
 /*advanced forum*/
@@ -138,7 +139,8 @@ body.not-logged-in .filter-wrapper {
 }
 
 
-/* TOP-BAR
+/* ---------
+ * TOP-BAR
 ----------*/
 #top-bar {
   background-color: #E8E4D9;
@@ -277,7 +279,8 @@ body.tertiary-section #sub-bar {
     background-image: url(/sites/all/themes/tuba/images/assets/tilbud.png); 
     background-repeat: no-repeat;
   }
-/* RIGHT SIDEBAR
+/* ---------
+ * RIGHT SIDEBAR
 ----------*/
 #sidebar-right .block {
 	background: none repeat scroll 0 0 #DDDDDD;
@@ -322,7 +325,9 @@ body.tertiary-section #sub-bar {
     width: 580px;
   } 
   
-/* FOOTER-BAR
+  
+/* ---------
+ * FOOTER-BAR
 ----------*/
 
 #footer-bar {
@@ -347,7 +352,8 @@ body.tertiary-section #sub-bar {
   border-right: 1px solid #bfbfbf;
 }
 
-/* BOTTOM-BAR
+/* ---------
+ * BOTTOM-BAR
 ----------*/
 #bottom-bar {
   background-color: #DDDDDD;
@@ -381,8 +387,9 @@ body.tertiary-section #sub-bar {
   line-height: 32px;
 }
 
-/* MAIN-SECTION
-----------*/
+/* ------------
+ * MAIN-SECTION
+ * ----------*/
 .breadcrumb {
   font-size: 11px;
   text-transform: uppercase;  
@@ -395,32 +402,79 @@ body.tertiary-section #sub-bar {
 }
 
     
-/* slideshow */
-#views_slideshow_cycle_main_slideshows-page,
-#views_slideshow_cycle_main_slideshows-page_1,
-.views-slideshow-controls-bottom,
-.views-slideshow-controls-bottom .views-field-title,
-.views-slideshow-controls-bottom .views-content-field-youtube-video,
-.views-slideshow-controls-bottom .views-field-field-section  { 
-	float:left;
-}
+  /* Slideshow and "De svære spørgsmål" pages
+  ----------*/
+  #views_slideshow_cycle_main_slideshows-page,
+  #views_slideshow_cycle_main_slideshows-page_1,
+  .views-slideshow-controls-bottom,
+  .views-slideshow-controls-bottom .views-field-title,
+  .views-slideshow-controls-bottom .views-content-field-youtube-video,
+  .views-slideshow-controls-bottom .views-field-field-section  { 
+  	float:left;
+  }
+  
+  #views_slideshow_cycle_main_slideshows-page .views-field-title a {
+    font-size: 18px;
+    color: #F15B19;
+    text-decoration: none;
+  }
+  
+  #views_slideshow_cycle_main_slideshows-page .views-label-title {
+    color: #787B72;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: block;
+  }
 
-.views-slideshow-controls-bottom .views-field-field-section { 
-  width: 140px;
-}
+  #views_slideshow_cycle_main_slideshows-page .views-field-title {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: 0;
+    opacity: 0.9;
+    padding: 10px 20px;
+    position: absolute;
+    top: 280px;
+    width: 350px;
+  }
+  .views-slideshow-controls-bottom .views-field-field-section { 
+    width: 140px;
+  }
+  
+  .views-slideshow-controls-bottom {
+    width: 340px;
+    margin-left: 20px;
+  }
+  
+  .views-slideshow-controls-bottom h2 {
+    background: url("/sites/all/themes/tuba/images/assets/desvaere.png") no-repeat scroll 10px 12px #F15B19;
+    height: 54px;
+    line-height: 54px;
+    padding-left: 52px;
+    margin: 0px;
+    border-radius: 5px 5px 0 0;
+  }
+    
+  .views-slideshow-controls-bottom .views-content-field-youtube-video { 
+    clear: left;
+    margin-right: 20px;
+  }
+  
+  #block-views-slideshows-block-1 {
+    float:right;
+  }
+  
+  .views-slideshow-pager-field-item {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 1px solid #C6C6C6;
+    height: 81px;
+    padding: 10px;
+  }
+  
+  .views-slideshow-pager-field-item.active,
+  .views-slideshow-pager-field-item:hover {
+    background: none repeat scroll 0 0 #B8B8B8;
+    
+  }
 
-.views-slideshow-controls-bottom {
-  width: 340px;  
-}
-
-.views-slideshow-controls-bottom .views-content-field-youtube-video { 
-  clear: left;
-  margin-right: 20px;
-}
-
-#block-views-slideshows-block-1 {
-  float:right;
-}
 /*forum*/
 
 tr.forum-row {
