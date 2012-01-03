@@ -52,8 +52,20 @@ h1#page-title {
     padding: 8px 0 10px;
 }
 
-h2 {
+h2, h3 {
     font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none outside none;
+}
+
+.item-list ul li {
+  margin: 0;
 }
 
 body.show-grid .container-16 {
@@ -230,7 +242,6 @@ body.tertiary-section #sub-bar {
     height:42px; 
     line-height:32px; 
     padding-left: 42px; 
-    text-decoration: none;
   }
   
   .menu-name-main-menu li a:hover {
@@ -291,39 +302,107 @@ body.tertiary-section #sub-bar {
 }
 
   /*front page fold out widgets*/
-  #block-forum-new,
+  #block-views-forum-block,
   #block-views-begivenheder-block {
     clear: both;
     float: right; 
     width: 340px; 
     position: relative;
   }
-  #block-forum-new h2,
-  #block-views-begivenheder-block h2 {
-    background: none repeat scroll 0 0 #DDDDDD;
+
+  
+  .tab-foldout {
+    background: url("/sites/all/themes/tuba/images/assets/latest_menu_bg.png") no-repeat scroll 0 0 transparent;
     border-radius: 5px 5px 5px 5px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 10px 10px 60px;
     font-size: 14px;
     font-weight: normal;
     cursor: pointer;
     display: block;
   }
   
-  #block-forum-new .content {
-    background: #DDDDDD; 
-    border-radius: 5px; 
+  #block-views-forum-block h2,
+  #block-views-begivenheder-block h2 {
+    margin-bottom: 0px; 
+    font-size: 14px;
+    font-weight: normal; 
+  }   
+  
+  #block-views-forum-block h2 {
+    background: url("/sites/all/themes/tuba/images/assets/latest_icon_forum.png") no-repeat scroll 245px 50% transparent; 
+  }
+    
+  #block-views-begivenheder-block h2 {
+    background: url("/sites/all/themes/tuba/images/assets/latest_icon_calendar.png") no-repeat scroll 245px 50% transparent;
+  } 
+  
+  .view-id-forum,
+  .view-id-begivenheder {
+    position: absolute;  
+  }
+  
+  #block-views-forum-block .content,
+  #block-views-begivenheder-block .content {
     left: -600px; 
     top: 0; 
-    z-index: 999;
+    z-index: 100;
     position: absolute;
   }
   
-  #block-forum-new .content .item-list {
+  #block-views-forum-block .view-content,
+  #block-views-begivenheder-block .view-content {
+    background: #DDDDDD; 
+    border-radius: 5px; 
+    box-shadow: 4px 4px 8px -5px #333333;
+  }
+  
+  .tab-foldout-header {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-radius: 5px 0 0 0;
+    color: #F15B19;
+    height: 32px;
+    line-height: 22px;
+    padding: 10px 0 0 15px;
+    position: absolute;
+    width: 595px;
+  }
+  
+  #block-views-forum-block .content .item-list,
+  #block-views-begivenheder-block .content .item-list {
     border-top: 1px solid #C6C6C6;
-    margin-top: 38px;
+    margin-top: 42px;
     width: 580px;
   } 
+  
+  #block-views-forum-block .content li,
+  #block-views-begivenheder-block .content li {
+    border-bottom: 1px solid #C6C6C6;
+    overflow: hidden;
+    padding: 10px 15px;
+  }
+  
+  #block-views-forum-block .content li a,
+  #block-views-begivenheder-block .content li a {
+    color: #000000;
+  }
+  
+  #block-views-forum-block .views-label-name,
+  #block-views-forum-block .views-field-name .field-content,
+  #block-views-begivenheder-block .views-field-field-date {
+    color: #646464;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+  }
+  
+  #block-views-begivenheder-block .views-field-title {
+    display: inline;
+  }
+  
+  #block-views-begivenheder-block .views-field-field-date {
+    float:right;
+  }
   
   
 /* ---------
@@ -416,7 +495,6 @@ body.tertiary-section #sub-bar {
   #views_slideshow_cycle_main_slideshows-page .views-field-title a {
     font-size: 18px;
     color: #F15B19;
-    text-decoration: none;
   }
   
   #views_slideshow_cycle_main_slideshows-page .views-label-title {
@@ -435,10 +513,18 @@ body.tertiary-section #sub-bar {
     top: 280px;
     width: 350px;
   }
-  .views-slideshow-controls-bottom .views-field-field-section { 
+  
+  .views-slideshow-controls-bottom .views-content-field-section { 
     width: 140px;
+    font-size: 12px;
+    padding: 25px 0 10px 15px;
+    text-transform: uppercase;
   }
   
+  .views-slideshow-controls-bottom .views-content-field-section a { 
+    color: #4C83C3;
+  }
+    
   .views-slideshow-controls-bottom {
     width: 340px;
     margin-left: 20px;
@@ -455,7 +541,6 @@ body.tertiary-section #sub-bar {
     
   .views-slideshow-controls-bottom .views-content-field-youtube-video { 
     clear: left;
-    margin-right: 20px;
   }
   
   #block-views-slideshows-block-1 {
@@ -467,6 +552,11 @@ body.tertiary-section #sub-bar {
     border-bottom: 1px solid #C6C6C6;
     height: 81px;
     padding: 10px;
+  }
+  
+  #views_slideshow_pager_field_item_bottom_slideshows-page_2 {
+    border-bottom: medium none;
+    border-radius: 0 0 5px 5px;
   }
   
   .views-slideshow-pager-field-item.active,
