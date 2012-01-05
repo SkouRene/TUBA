@@ -77,22 +77,15 @@ body {
   font-size: 14px;
 }
 
-#site-header,
-#site-subheader,
-#footer-region,
-.column,
-.node,
-.comment,
-.block {
-}
-
-
-
 ul.main-menu,
 ul.secondary-menu {
   display: block;
   margin: 0;
   padding: 0;
+}
+
+.right {
+  float: right;
 }
 
 /* ---------
@@ -132,10 +125,6 @@ input.form-text,
     padding: 8px 5px;
 }
 
-input#edit-search-block-form--2 {
-    padding: 0px;
-    margin-bottom: 5px;
-}
 
 .form-select {
     border: 1px solid #BFBFBF; 
@@ -252,7 +241,7 @@ body.tertiary-section #sub-bar {
     color: #FFFFFF;
   }
 
-  .menu-name-main-menu li.menu-mlid-1292 {
+  .menu-name-main-menu li.menu-mlid-1095 {
     background-image: url(/sites/all/themes/tuba/images/assets/desvaere.png); 
     background-repeat: no-repeat;
   }
@@ -290,6 +279,61 @@ body.tertiary-section #sub-bar {
     background-image: url(/sites/all/themes/tuba/images/assets/tilbud.png); 
     background-repeat: no-repeat;
   }
+  
+/*search function*/
+
+#search-box {
+  margin-top: 20px;
+}
+
+input#edit-search-block-form--2 {
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+#search-activate {
+  background: url("/sites/all/themes/tuba/images/assets/search.png") no-repeat scroll 10px 4px #DDDDDD;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  display: block;
+  padding: 8px 0 8px 53px;
+  z-index: 101;
+  position: relative;
+}
+
+#search-form-wrapper {
+  background: none repeat scroll 0 0 #DDDDDD;
+  border-radius: 5px 0 5px 5px;
+  box-shadow: 0 4px 8px -2px #333333;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  width: 320px;
+  z-index: 100;
+}
+
+#search-text-area {
+  border: 1px solid #BFBFBF;
+  border-radius: 5px 5px 5px 5px;
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px 5px;
+  width: 310px;
+}
+
+#search-form-wrapper span {
+  color: #757474;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+#search-form-wrapper #edit-submit {
+  margin-top: 0px;
+  float: right;
+}
 /* ---------
  * RIGHT SIDEBAR
 ----------*/

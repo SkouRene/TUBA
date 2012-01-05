@@ -26,6 +26,18 @@ Drupal.behaviors.myBehavior = {
         $("#block-views-begivenheder-block .content").hide();
       }
     )
+    
+    //SEARCH Foldout
+    $("#search-form-wrapper").hide();
+    $("#search-activate").toggle(
+      function(){
+        $("#search-form-wrapper").slideDown('fast');
+      },
+      
+      function(){
+        $("#search-form-wrapper").slideUp('fast');
+      }
+    ) 
 
   }
 };
