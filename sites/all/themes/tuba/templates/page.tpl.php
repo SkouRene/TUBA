@@ -44,7 +44,7 @@
       <?php endif; ?>
             
       <?php if ($page['search_box']): ?>
-        <div id="search-box" class="grid-2"><?php print render($page['search_box']); ?></div>
+        <div id="search-box" class="grid-2 push-1"><?php print render($page['search_box']); ?></div>
       <?php endif; ?>
     
 
@@ -53,8 +53,8 @@
   </div>
     
   <div id="main-wrapper" class="container-16 clearfix">  
-    <!--the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-5".-->
-    <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 5) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
+    <!--TUBA-modification: the width of sidebar_second is prepared here - the integer parameter after $page[sidebar_second] is changed to 6.-->
+    <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 6) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
       <?php print $breadcrumb; ?>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
@@ -81,8 +81,8 @@
     <?php endif; ?>
     
     <?php if ($page['sidebar_second']): ?>
-        <!--the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-5".-->
-      <div id="sidebar-right" class="column sidebar region grid-5">
+      <!--TUBA-modification: the width of sidebar_second is prepared here - changed from the default "grid-3" to "grid-6".-->
+      <div id="sidebar-right" class="column sidebar region grid-6">
         <?php print render($page['sidebar_second']); ?>
       </div>
     <?php endif; ?>
