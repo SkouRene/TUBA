@@ -1,6 +1,24 @@
 <?php
 // $Id: template.php,v 1.1.2.6.4.2 2011/01/11 01:08:49 dvessel Exp $
 
+/* Theming the breadcrumb*/
+function tuba_breadcrumb($variables) {
+    
+  if (drupal_get_title()) {
+    $variables['breadcrumb'][] = drupal_get_title();
+  }  
+   
+  // breadcrumb for the front page.
+  if (drupal_is_front_page()) {
+    $variables['breadcrumb'][] = t('Home');
+  }
+  $breadcrumb = $variables['breadcrumb'];
+  
+  $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+  $output .= '<div class="breadcrumb grid-16">' . implode(' > ', $breadcrumb) . '</div>';
+ 
+ return $output;
+}
 
 /**
  * Implements hook_form_alter
