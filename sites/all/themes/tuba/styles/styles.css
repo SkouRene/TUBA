@@ -69,7 +69,7 @@ ul {
 }
 
 body.show-grid .container-16 {
-   /* background-image: none;*/
+   background-image: none;
 }
 
 body {
@@ -144,7 +144,7 @@ body.not-logged-in .filter-wrapper {
  * TOP-BAR
 ----------*/
 #top-bar {
-  background-color: #E8E4D9;
+  background: url("/sites/all/themes/tuba/images/canvas_bg.jpg") repeat scroll 0 0 #F2EEE4;
   height: 102px;
 }
 
@@ -198,6 +198,7 @@ body.not-logged-in .filter-wrapper {
 ----------*/
 #sub-bar {
   background-color: #F05B19;
+  box-shadow: 0 3px 7px -3px #444444 inset;
   height: 76px;
 }
 
@@ -230,7 +231,7 @@ body.tertiary-section #sub-bar {
     font-size: 16px; 
     height:42px; 
     line-height:32px; 
-    padding-left: 42px; 
+    padding-left: 36px; 
   }
   
   .menu-name-main-menu li a:hover {
@@ -241,7 +242,7 @@ body.tertiary-section #sub-bar {
     color: #FFFFFF;
   }
 
-  .menu-name-main-menu li.menu-mlid-1095 {
+  .menu-name-main-menu li.menu-mlid-1295 {
     background-image: url(/sites/all/themes/tuba/images/assets/desvaere.png); 
     background-repeat: no-repeat;
   }
@@ -339,10 +340,11 @@ input#edit-search-block-form--2 {
 ----------*/
 #sidebar-right .block {
 	background: none repeat scroll 0 0 #DDDDDD;
-    border-radius: 5px 5px 5px 5px;
-    margin-top: 20px;
-    overflow: hidden;
-    padding: 15px;
+  border-radius: 5px 5px 5px 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 15px;
+  clear: right;
 }
 
   /*front page fold out widgets*/
@@ -448,6 +450,22 @@ input#edit-search-block-form--2 {
     float:right;
   }
   
+  #block-views-emnerelaterede-udtr-k-block .content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px 5px 5px 5px;
+    max-height: 288px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+
+  #block-views-emnerelaterede-udtr-k-block h2 {
+    background-image: url("/sites/all/themes/tuba/images/assets/video.png");
+    background-repeat: no-repeat;
+    height: 32px;
+    line-height: 30px;
+    padding-left: 42px;
+  } 
   
 /* ---------
  * FOOTER-BAR
@@ -457,6 +475,8 @@ input#edit-search-block-form--2 {
   color: #646464;
   height: 176px; 
   background: #F2EEE4;
+  background: url("../images/canvas_bg.jpg") repeat scroll 0 0 #F2EEE4;
+  box-shadow: 0 0 5px 1px #999999;
 }
 
 #footer-bar h3 {
@@ -524,7 +544,18 @@ input#edit-search-block-form--2 {
   text-decoration: none;
 }
 
-    
+ul.breadcrumb li {
+  display: inline;
+}
+
+
+body.node-type-video h1#page-title {
+  /*color: #F15B19;
+  padding: 8px 0 10px;
+  position: absolute;
+  top: 80px;
+  z-index: 100; */
+}   
   /* Slideshow and "De svære spørgsmål" pages
   ----------*/
   #views_slideshow_cycle_main_slideshows-page,
@@ -532,7 +563,9 @@ input#edit-search-block-form--2 {
   .views-slideshow-controls-bottom,
   .views-slideshow-controls-bottom .views-field-title,
   .views-slideshow-controls-bottom .views-content-field-youtube-video,
-  .views-slideshow-controls-bottom .views-field-field-section  { 
+  .views-slideshow-controls-bottom .views-field-field-section,
+  #block-views-slideshows-block-1 .views-field-field-section,
+  #block-views-slideshows-block-1 .views-field-field-slideshow-image  { 
   	float:left;
   }
   
@@ -558,7 +591,8 @@ input#edit-search-block-form--2 {
     width: 350px;
   }
   
-  .views-slideshow-controls-bottom .views-content-field-section { 
+  .views-slideshow-controls-bottom .views-content-field-section,
+  #block-views-slideshows-block-1 .views-field-field-section { 
     width: 140px;
     font-size: 12px;
     padding: 25px 0 10px 15px;
@@ -574,7 +608,21 @@ input#edit-search-block-form--2 {
     margin-left: 20px;
   }
   
-  .views-slideshow-controls-bottom h2 {
+  #block-views-slideshows-block-1 {
+    width: 340px;
+    margin-top: 32px;
+  }
+  
+  #sidebar-right #block-views-slideshows-block-1.block {
+    padding: 0px;
+  }
+  
+  #block-views-slideshows-block-1 .view-content {
+    padding: 0px 10px 15px 10px;
+  }
+  
+  .views-slideshow-controls-bottom h2,
+  #block-views-slideshows-block-1 h2 {
     background: url("/sites/all/themes/tuba/images/assets/desvaere.png") no-repeat scroll 10px 12px #F15B19;
     height: 54px;
     line-height: 54px;
@@ -583,7 +631,8 @@ input#edit-search-block-form--2 {
     border-radius: 5px 5px 0 0;
   }
     
-  .views-slideshow-controls-bottom .views-content-field-youtube-video { 
+  .views-slideshow-controls-bottom .views-content-field-youtube-video,
+  #block-views-slideshows-block-1 .views-field-field-slideshow-image { 
     clear: left;
   }
   
@@ -608,6 +657,7 @@ input#edit-search-block-form--2 {
     background: none repeat scroll 0 0 #B8B8B8;
     
   }
+  
 
 /*forum*/
 
